@@ -5,7 +5,11 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 1920,
     height: 1080,
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    webPreferences : {
+      nodeIntegration:true,
+      contextIsolation:false
+    }
   })
 
   win.loadFile('./Templates/home.html')
