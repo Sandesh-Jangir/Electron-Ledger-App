@@ -77,3 +77,21 @@ input{
     padding: 0px 10px;
     border-radius: 5px;
 }
+
+.header{
+    position: relative;
+    margin: 50px 2rem;
+}
+.header span{
+    color: var(--primary-color);
+    font-size: 30px !important;
+}
+.header h1{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
