@@ -22,12 +22,15 @@
         <div class="dropdown">
             <span>Type</span>
             <div class="drop_items">
-                <div><a href="#">Credit</a></div>
-                <div><a href="#">Debit</a></div>
+                <div><a href="#" onclick="toCredit()">Credit</a></div>
+                <div><a href="#" onclick="toDebit()">Debit</a></div>
             </div>
         </div>
-        <a href="#" class="transaction_btn">Create Transaction</a>
+        <a href="#" class="transaction_btn" onclick="addTransaction()">Create Transaction</a>
     </div>
 
+    <div id="main"></div>
+
+    <script src="../main.js"></script>
 </body>
 </html>

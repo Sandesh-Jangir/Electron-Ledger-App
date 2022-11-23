@@ -12,3 +12,20 @@ const transactionSchema = new mongoose.Schema({
 
 // Initializing the Model.
 const transaction = new mongoose.model("Transaction", transactionSchema);
+
+var message = "Credit";
+
+function toCredit(){
+    message = "Credit";
+}
+function toDebit(){
+    message = "Debit";
+}
+
+function addTransaction(){
+    let value = parseInt(document.getElementById("input").value);
+    let transactionDoc = new transaction();
+    transactionDoc.amount = value;
+    transactionDoc.transaction_type = message;
+    transactionDoc.save();
+}
