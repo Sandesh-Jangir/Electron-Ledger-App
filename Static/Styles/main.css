@@ -138,3 +138,32 @@ input{
     background-color: #272d2dd2;
     display: none;
 }
+#main{
+    width: 1000px;
+    margin: auto;
+    margin-top: 5rem;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.main-row{
+    border-bottom: 2px solid var(--primary-color);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+.column{
+    width: 30%;
+    text-align: center;
+}
+.column:nth-child(3){
+    font-weight: 800;
+}
+.credit{
+    color: green;
+}
+.debit{
+    color:red;
+}
