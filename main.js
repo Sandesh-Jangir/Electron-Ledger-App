@@ -13,19 +13,24 @@ const transactionSchema = new mongoose.Schema({
 // Initializing the Model.
 const transaction = new mongoose.model("Transaction", transactionSchema);
 
-var message = "Credit";
+var transType = "Credit";
 
 function toCredit(){
-    message = "Credit";
+    transType = "Credit";
 }
 function toDebit(){
-    message = "Debit";
+    transType = "Debit";
 }
 
 function addTransaction(){
+    document.getElementById("message_container").style.display = "flex";
     let value = parseInt(document.getElementById("input").value);
     let transactionDoc = new transaction();
     transactionDoc.amount = value;
-    transactionDoc.transaction_type = message;
+    transactionDoc.transaction_type = transType;
     transactionDoc.save();
+}
+
+function exitMessage(){
+    document.getElementById("message_container").style.display = "none";
 }
