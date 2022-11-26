@@ -31,6 +31,15 @@ function addTransaction(){
     transactionDoc.amount = value;
     transactionDoc.transaction_type = transType;
     transactionDoc.save();
+    
+    // Adding the transaction to frontend.
+    let date = new Date(Date.now());
+    date = String(date).slice(4,15) 
+    document.getElementById("main").innerHTML += `<div class="row">
+    <div class="column">${date}</div>
+    <div class="column">${value}</div>
+    <div class="column ${String(transType).toLowerCase()}">${transType}</div>
+    </div>`
 }
 
 function exitMessage(){
