@@ -46,7 +46,7 @@ const getTransactions = async ()=>{
         document.getElementById("main").innerHTML += `<div class="row">
         <div class="column">${date}</div>
         <div class="column">${element["amount"]}</div>
-        <div class="column credit">${element["transaction_type"]}</div>
+        <div class="column ${String(element["transaction_type"]).toLowerCase()}">${element["transaction_type"]}</div>
     </div>`;
     }
 }
