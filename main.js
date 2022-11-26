@@ -40,6 +40,15 @@ function exitMessage(){
 // Fetching the data.
 const getTransactions = async ()=>{
     const fetchedTransactions = await transaction.find({});
+    for (let i = 0; i < fetchedTransactions.length; i++) {
+        const element = fetchedTransactions[i];
+        let date = String(element["date"]).slice(4,15)
+        document.getElementById("main").innerHTML += `<div class="row">
+        <div class="column">${date}</div>
+        <div class="column">${element["amount"]}</div>
+        <div class="column credit">${element["transaction_type"]}</div>
+    </div>`;
+    }
 }
 
 getTransactions();
