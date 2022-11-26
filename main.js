@@ -13,6 +13,8 @@ const transactionSchema = new mongoose.Schema({
 // Initializing the Model.
 const transaction = new mongoose.model("Transaction", transactionSchema);
 
+
+// Form functioning.
 var transType = "Credit";
 
 function toCredit(){
@@ -34,3 +36,10 @@ function addTransaction(){
 function exitMessage(){
     document.getElementById("message_container").style.display = "none";
 }
+
+// Fetching the data.
+const getTransactions = async ()=>{
+    const fetchedTransactions = await transaction.find({});
+}
+
+getTransactions();
