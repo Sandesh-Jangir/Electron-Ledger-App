@@ -24,6 +24,11 @@ function toDebit(){
     transType = "Debit";
 }
 
+// Function for closing the popup message.
+function exitMessage(){
+    document.getElementById("message_container").style.display = "none";
+}
+
 function addTransaction(){
     document.getElementById("message_container").style.display = "flex";
     let value = parseInt(document.getElementById("input").value);
@@ -41,11 +46,6 @@ function addTransaction(){
     <div class="column ${String(transType).toLowerCase()}">${transType}</div>
     </div>`
 }
-
-function exitMessage(){
-    document.getElementById("message_container").style.display = "none";
-}
-
 // Fetching the data.
 const getTransactions = async ()=>{
     const fetchedTransactions = await transaction.find({});
