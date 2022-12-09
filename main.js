@@ -81,6 +81,11 @@ const calculateOverall = async () => {
   }
   // Calculating Balance.
   const balance = totalIncome - totalExpense;
+
+  // Sending the values to home page.
+  document.getElementById("overall_balance").innerText += ` ${balance}`;
+  document.getElementById("overall_income").innerText += ` ${totalIncome}`;
+  document.getElementById("overall_expense").innerText += ` ${totalExpense}`;
 };
 
 // Executing the functions.
