@@ -88,6 +88,24 @@ const calculateOverall = async () => {
   document.getElementById("overall_expense").innerText += ` ${totalExpense}`;
 };
 
+// Function to calculate monthly performance.
+const calculateMonthly = async () => {
+  // All Transactions.
+  const allTransactions = await transaction.find({});
+
+  // Fetching this month transactions.
+  for (let i = 0; i < allTransactions.length; i++) {
+    var thisMonthTransactions;
+    const element = allTransactions[i];
+    let currentMonth = new Date(Date.now());
+    currentMonth = String(currentMonth).slice(4, 7);
+    let elementMonth = String(element["date"]).slice(4, 7);
+    if (elementMonth == currentMonth) {
+      thisMonthTransactions += element;
+    }
+  }
+};
 // Executing the functions.
+calculateMonthly();
 calculateOverall();
 getTransactions();
