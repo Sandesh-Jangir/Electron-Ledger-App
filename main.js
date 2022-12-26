@@ -95,15 +95,32 @@ const calculateMonthly = async () => {
 
   // Fetching this month transactions.
   for (let i = 0; i < allTransactions.length; i++) {
-    var thisMonthTransactions;
+    var thisMonthTransactions = [];
     const element = allTransactions[i];
     let currentMonth = new Date(Date.now());
     currentMonth = String(currentMonth).slice(4, 7);
     let elementMonth = String(element["date"]).slice(4, 7);
     if (elementMonth == currentMonth) {
-      thisMonthTransactions += element;
+      thisMonthTransactions.push(element);
     }
   }
+  // Categorising this month's transactions.
+  for (let i = 0; i < thisMonthTransactions.length; i++) {
+    const element = thisMonthTransactions[i];
+    var moneyInMonth = 0;
+    var moneyOutMonth = 0;
+    if(element["transaction_type"] == "Credit"){
+      moneyInMonth += element["amount"];
+    }
+    else if(element["transaction_type"] == "Debit"){
+      moneyOutMonth += element["amount"];
+    }
+  }
+
+  // Adding the values to the home page.
+  document.getElementById("month_balance").innerHTML += ` ${moneyInMonth-moneyOutMonth}`;
+  document.getElementById("month_income").innerHTML += ` ${moneyInMonth}`;
+  document.getElementById("month_expense").innerHTML += ` ${moneyOutMonth}`;
 };
 // Executing the functions.
 calculateMonthly();
